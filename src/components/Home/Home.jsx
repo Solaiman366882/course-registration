@@ -6,12 +6,17 @@ import { useEffect } from "react";
 const Home = () => {
 
     const[courses,setCourses] = useState([]);
+    // const[selectedCourse,setSelectedCourses] = useState([]);
 
     useEffect(() => {
         fetch('courses.json')
         .then(res => res.json())
         .then(data => setCourses(data))
     },[]);
+
+    // const handleSelectedCourse = () => {
+
+    // }
 
     return (
         <div className="bg-[#F3F3F3] min-h-screen ">
