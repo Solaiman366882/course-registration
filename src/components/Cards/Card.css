@@ -44,7 +44,7 @@
 .card .card-body .price-hour .hour ,
 .card .card-body .price-hour .price {
     display: flex;
-    gap: 12px;
+    gap: 6px;
     align-items: center;
 }
 .card .btn {

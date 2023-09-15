@@ -1,13 +1,18 @@
-import img from '../../assets/Rectangle 2.png';
+import PropTypes from 'prop-types'
 import dollar from '../../assets/icons/dollar-sign.png';
 import book from '../../assets/icons/Frame.png'
 import './Card.css'
 
-const Card = () => {
+const Card = ({course}) => {
+
+    // const{title,img,description,price,credit_hour} = course;
+    // console.log(course.id);
+    console.log(course);
+
     return (
         <div className="card">
             <div className="card-img">
-                <img src={img} alt="" />
+                {/* <img src={} alt="" /> */}
             </div>
             <div className="card-body">
                 <h2>Introduction to C Programming</h2>
@@ -29,5 +34,9 @@ const Card = () => {
         </div>
     );
 };
+
+Card.propTypes = {
+    course:PropTypes.object
+}
 
 export default Card;
