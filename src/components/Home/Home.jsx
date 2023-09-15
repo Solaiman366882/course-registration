@@ -7,7 +7,8 @@ const Home = () => {
 
     const[courses,setCourses] = useState([]);
     const[selectedCourse,setSelectedCourses] = useState([]);
-    const[remainingHour,setRemainingHour] = useState(20)
+    const[remainingHour,setRemainingHour] = useState(20);
+    const[totalHour,setTotalHour] = useState(0);
 
     useEffect(() => {
         fetch('courses.json')
@@ -18,6 +19,14 @@ const Home = () => {
     const handleSelectedCourse = (course) => {
         const newSelectedCourses = [...selectedCourse,course];
         const newRemainingHour = remainingHour - course.credit_hour;
+        let hourCount = course.credit_hour;
+        const isExist = selectedCourse.find(item => course.id == item.id)
+        if(isExist){
+            return alert("You have already purchase this course")
+        }
+        selectedCourse.map(course => {
+            hourCount += course.credit_hour;
+        })
         setRemainingHour(newRemainingHour)
         setSelectedCourses(newSelectedCourses);
         console.log(selectedCourse);
