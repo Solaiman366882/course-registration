@@ -3,11 +3,9 @@ import dollar from '../../assets/icons/dollar-sign.png';
 import book from '../../assets/icons/Frame.png'
 import './Card.css'
 
-const Card = ({course}) => {
+const Card = ({course,handleSelectedCourse}) => {
 
     const{title,img,description,price,credit_hour} = course;
-    console.log(course.id);
-    // console.log(course);
 
     return (
         <div className="card">
@@ -29,14 +27,15 @@ const Card = ({course}) => {
                 </div>
             </div>
             <div className="card-end">
-                <button className='btn'>Select</button>
+                <button className='btn' onClick={() => handleSelectedCourse(course)}>Select</button>
             </div>
         </div>
     );
 };
 
 Card.propTypes = {
-    course:PropTypes.object
+    course:PropTypes.object,
+    handleSelectedCourse:PropTypes.func
 }
 
 export default Card;
