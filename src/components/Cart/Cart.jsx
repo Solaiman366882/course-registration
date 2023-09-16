@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import './cart.css'
 const Cart = ({selectedCourse,remainingHour,totalHour,totalPrice}) => {
     return (
-        <div className="w-[25%] bg-white rounded-xl p-6">
+        <div className=" w-full  lg:w-[30%] xl:w-[25%] bg-white rounded-xl p-6">
             <div>
                 <h2 className=" text-lg text-[#2F80ED] font-bold">Credit Hour Remaining {remainingHour} hr</h2>
 
@@ -24,7 +24,7 @@ const Cart = ({selectedCourse,remainingHour,totalHour,totalPrice}) => {
 };
 
 Cart.propTypes ={
-    selectedCourse:PropTypes.object,
+    selectedCourse:PropTypes.array,
     remainingHour:PropTypes.number,
     totalHour:PropTypes.number,
     totalPrice:PropTypes.number   

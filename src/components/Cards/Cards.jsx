@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import Card from"./Card"
 const Cards = ({courses,handleSelectedCourse}) => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-[80%]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 w-full xl:w-[75%] lg:w-[65%]">
             {/* <Card></Card>
             <Card></Card>
             <Card></Card> */}
