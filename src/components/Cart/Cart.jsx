@@ -1,5 +1,5 @@
 import './cart.css'
-const Cart = ({selectedCourse,remainingHour}) => {
+const Cart = ({selectedCourse,remainingHour,totalHour,totalPrice}) => {
     return (
         <div className="w-[25%] bg-white rounded-xl p-6">
             <div>
@@ -12,10 +12,10 @@ const Cart = ({selectedCourse,remainingHour}) => {
                     }
                 </div>
                 <div className="cart-hour">
-                    <h3>Total Credit Hour : 13</h3>
+                    <h3>Total Credit Hour : {totalHour}</h3>
                 </div>
                 <div className='total-price'>
-                    <h3>Total Price : 48000 USD</h3>
+                    <h3>Total Price : {totalPrice} USD</h3>
                 </div>
             </div>
         </div>

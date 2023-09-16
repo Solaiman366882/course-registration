@@ -9,6 +9,7 @@ const Home = () => {
     const[selectedCourse,setSelectedCourses] = useState([]);
     const[remainingHour,setRemainingHour] = useState(20);
     const[totalHour,setTotalHour] = useState(0);
+    const[totalPrice,setTotalPrice] = useState(0);
 
     useEffect(() => {
         fetch('courses.json')
@@ -18,16 +19,20 @@ const Home = () => {
 
     const handleSelectedCourse = (course) => {
         const newSelectedCourses = [...selectedCourse,course];
-        const newRemainingHour = remainingHour - course.credit_hour;
+        let priceCount = course.price;
         let hourCount = course.credit_hour;
         const isExist = selectedCourse.find(item => course.id == item.id)
+        const newRemainingHour = remainingHour - hourCount;
         if(isExist){
             return alert("You have already purchase this course")
         }
         selectedCourse.map(course => {
             hourCount += course.credit_hour;
+            priceCount += course.price;
         })
-        setRemainingHour(newRemainingHour)
+        setTotalPrice(priceCount);
+        setTotalHour(hourCount);
+        setRemainingHour(newRemainingHour);
         setSelectedCourses(newSelectedCourses);
         console.log(selectedCourse);
     }
@@ -37,8 +42,16 @@ const Home = () => {
             <div className="max-w-screen-xl mx-auto">
                 <h1 className=' text-[#1C1B1B] text-3xl font-bold text-center pt-12 mb-8'>Course Registration</h1>
                 <div className="flex gap-5">
-                    <Cards courses={courses} handleSelectedCourse={handleSelectedCourse}></Cards>
-                    <Cart selectedCourse={selectedCourse} remainingHour={remainingHour}></Cart>
+                    <Cards 
+                    courses={courses} 
+                    handleSelectedCourse={handleSelectedCourse}
+                    ></Cards>
+                    <Cart 
+                    selectedCourse={selectedCourse} 
+                    remainingHour={remainingHour} 
+                    totalHour={totalHour}
+                    totalPrice={totalPrice}
+                    ></Cart>
                 </div>
             </div>
         </div>
