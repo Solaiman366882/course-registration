@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Cards from "../Cards/Cards";
 import Cart from "../Cart/Cart";
@@ -30,11 +31,15 @@ const Home = () => {
             hourCount += course.credit_hour;
             priceCount += course.price;
         })
-        setTotalPrice(priceCount);
-        setTotalHour(hourCount);
-        setRemainingHour(newRemainingHour);
-        setSelectedCourses(newSelectedCourses);
-        console.log(selectedCourse);
+        if(hourCount > 20){
+            return alert('You have reached maximum hour limit.');
+        }else{
+            setTotalPrice(priceCount);
+            setTotalHour(hourCount);
+            setRemainingHour(newRemainingHour);
+            setSelectedCourses(newSelectedCourses);
+            console.log(selectedCourse);
+        }
     }
 
     return (
@@ -57,5 +62,7 @@ const Home = () => {
         </div>
     );
 };
+
+
 
 export default Home;
